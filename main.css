@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.control-buttons {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(221, 163, 195, 0.9);
+}
+.control-buttons span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #0c5568;
+    border: 5px solid #f7fbfc;
+    color: #FFF;
+    padding: 15px 25px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.info-container {
+    width: 1080px;
+    margin: 20px auto 0;
+    background-color: #966fd6;
+    padding: 20px;
+    font-size: 24px;
+    overflow: hidden;
+    border: 5px solid #0c5568;
+    color: whitesmoke;
+    border-radius: 8px;
+}
+.info-container .name {
+    float: left;
+    width: 50%;
+}
+.info-container .tries {
+    float: right;
+    width: 50%;
+    text-align: right;
+}
+
+.game-memroy-blocks {
+    display: flex;
+    width: 1100px;
+    flex-wrap: wrap;
+    margin: 20px auto;
+}
+.game-memroy-blocks .no-clicking {
+    pointer-events: none;
+}
+.game-memroy-blocks .game-block {
+    height: 200px;
+    transition: transform .5s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+    flex: 1 0 200px;
+    margin: 0 10px 20px;
+}
+.game-memroy-blocks .game-block .front {
+    background-color: #333;
+    line-height: 200px;
+}
+.game-memroy-blocks .game-block .front:before {
+    content: "?";
+    color: #e4e2e3;
+    font-size: 140px;
+    font-weight: bold;
+    
+}
+.game-memroy-blocks .game-block .back {
+    background-color: #60708B;
+    transform: rotateY(180deg);
+}
+.game-memroy-blocks .game-block .back img {
+    width: 140px;
+    height: 140px;
+    margin-top: 30px;
+}
+.game-memroy-blocks .game-block .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden;
+    border: 5px solid #966fd6;
+    border-radius: 8px;
+}
+.game-memroy-blocks .game-block.is-flipped,
+.game-memroy-blocks .game-block.has-match {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
